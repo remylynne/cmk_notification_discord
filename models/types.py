@@ -15,7 +15,7 @@ def hostStateByValue(value: str) -> HostState:
 
 class ServiceState(Enum):
     OK = "OK"
-    WARNING = "WARN"
+    WARNING = "WARNING"
     CRITICAL = "CRIT"
     UNKNOWN = "UNKNOWN"
 

@@ -62,7 +62,7 @@ def sendDiscordMessage(message: Message) -> int:
     webhook_url = config.parameter("discord_webhook_url")
 
     if not webhook_url:
-        sys.stderr.write("No webhook url provided (webhook_url=<webhook_url>)")
+        sys.stderr.write("No webhook url provided (discord_webhook_url=<webhook_url>)")
         return 2
 
     response = requests.post(webhook_url, json=message)
