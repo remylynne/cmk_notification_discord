@@ -2,7 +2,7 @@ from enum import Enum
 
 
 
-class HostState(Enum):
+class HostState(str, Enum):
     UP = "UP"
     DOWN = "DOWN"
     UNREACHABLE = "UNREACH"
@@ -13,7 +13,7 @@ def hostStateByValue(value: str) -> HostState:
             return state
     raise ValueError(f"Unknown HostState value: {value}")
 
-class ServiceState(Enum):
+class ServiceState(str, Enum):
     OK = "OK"
     WARNING = "WARNING"
     CRITICAL = "CRIT"
@@ -25,7 +25,7 @@ def serviceStateByValue(value: str) -> ServiceState:
             return state
     raise ValueError(f"Unknown ServiceState value: {value}")
 
-class NotificationType(Enum):
+class NotificationType(str, Enum):
     PROBLEM = "PROBLEM"
     RECOVERY = "RECOVERY"
     ACKNOWLEDGEMENT = "ACKNOWLEDGEMENT"
