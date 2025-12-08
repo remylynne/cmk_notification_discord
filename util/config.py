@@ -17,4 +17,4 @@ def parameter(key: str) -> str | None:
                 return v
     raise KeyError(f"key-value parameter '{key}' not found in NOTIFY_PARAMETERS")
 
-icon = "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/checkmk.svg"
+icon = "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/checkmk.png"

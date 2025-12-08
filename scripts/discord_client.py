@@ -2,6 +2,7 @@ from ..models.classes import Notification
 from ..models.discord import Embed, Field, Footer, Message
 from ..util.colors import getColorForNotification
 from ..util import config
+from dataclasses import asdict
 import requests
 import sys
 
@@ -64,8 +65,10 @@ def sendDiscordMessage(message: Message) -> int:
     if not webhook_url:
         sys.stderr.write("No webhook url provided (discord_webhook_url=<webhook_url>)")
         return 2
+    
+    payload = asdict(message)
 
-    response = requests.post(webhook_url, json=message)
+    response = requests.post(webhook_url, json=payload)
     if 400 <= response.status_code <= 599:
         sys.stderr.write(f"HTTP {response.status_code} while sending notification to discord: {response.text}")
         if 400 <= response.status_code <= 499:
