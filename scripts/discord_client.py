@@ -14,10 +14,15 @@ def _buildInfoEmbed(notification: Notification) -> Embed:
     else:
         title = f"Service {notification.type} notification"
 
+    
+    if notification.host_alias != notification.host_name:
+        host_value = f"{notification.host_alias} ({notification.host_name})"
+    else:
+        host_value = notification.host_alias
     facts = [
         Field(
             name="Host",
-            value=f"{notification.host_alias} ({notification.host_name})"
+            value=host_value
         )
     ]
 
