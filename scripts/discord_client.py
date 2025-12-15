@@ -10,9 +10,9 @@ import sys
 
 def _buildInfoEmbed(notification: Notification) -> Embed:
     if notification.what == "HOST":
-        title = f"Host {notification.type} notification"
+        title = f"Host {notification.type.name} notification"
     else:
-        title = f"Service {notification.type} notification"
+        title = f"Service {notification.type.name} notification"
 
     
     if notification.host_alias != notification.host_name:
